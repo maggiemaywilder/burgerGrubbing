@@ -1,0 +1,24 @@
+{
+  "name": "burgerlogger",
+  "version": "1.0.0",
+  "description": "Burger logger with MySQL, Node, Express, Handlebars and a homemade ORM",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maggiemaywilder/burgerGrubbing.git"
+  },
+  "author": "Maggie Wilder",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maggiemaywilder/burgerGrubbing/issues"
+  },
+  "homepage": "https://github.com/maggiemaywilder/burgerGrubbing#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.1",
+    "mysql": "^2.18.1"
+  }
+}
