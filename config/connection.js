@@ -7,3 +7,5 @@ const connection = mysql.createConnection({
     password: `${password}`,
     database: 'hr_db',
 });
+
+module.exports = connection;
