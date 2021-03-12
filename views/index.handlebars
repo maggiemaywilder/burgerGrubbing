@@ -1,12 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    {{{BODY}}}
-</body>
-</html>
+<header class="center"> 
+    <img src="./public/assets/img/burgerClock.png" alt="Clock with phrase \"It\'s Burger O\'clock\"."/>
+    {{!-- burger picture, centered on top --}}
+    <h1>Go on and get you some... burger!</h1>
+</header>
+<main class="container-lg">
+    <div class="burgerLists row">
+        <div class="listDiv col align-self-center justify-content-evenly" id="burgers">
+
+        </div>
+        <div class="listDiv col align-self-center justify-content-evenly" id="devoured">
+
+        </div>
+{{!-- #each for burgers left, buttons for each burger and a #each for devoured on right --}}
+    </div>
+</main>    
+<div class="center">
+
+    {{!-- input box and submit button to add a burger --}}
+</div>
