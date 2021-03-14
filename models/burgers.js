@@ -5,24 +5,23 @@ const orm = require('../config/orm');
 
 // Export at the end of the burger.js file
 const burger = {
-// example functions from catsApp for inspiration
+    selectAll(cb) {
+        orm.selectAll('burgers', (res) => cb(res));
+        // what is cb()? this seems circular, the orm function also ends with cb(res).
+    },
 
-    // all(cb) {
-    //     orm.all('cats', (res) => cb(res));
-    //   },
-    //   // The variables cols and vals are arrays.
-    //   create(cols, vals, cb) {
-    //     orm.create('cats', cols, vals, (res) => cb(res));
-    //   },
-    //   update(objColVals, condition, cb) {
-    //     orm.update('cats', objColVals, condition, (res) => cb(res));
-    //   },
-    //   delete(condition, cb) {
-    //     orm.delete('cats', condition, (res) => cb(res));
-    //   },
-    // };
+    insertOne(burgerEntry, cb) {
+        orm.insertOne('burgers', 'burger_name', `${burgerEntry}`, (res) => cb(res));
+    },
+
+    updateOne(objColVals, condition, cb) {
+        // I think objColVals and condition comes from db
+        // objColVals example {col1: value1, col2: value2}
+        // need to find objToSql function in catApp
+        orm.updateOne('burgers', objColVals, condition, (res) => cb(res))
+    },
     
-}
+};
 
 // export functions for the controller
 module.exports = burger;

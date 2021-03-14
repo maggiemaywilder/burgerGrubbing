@@ -10,6 +10,7 @@ router.get('/', (req, res) => {
     burger.all((data) => {
         // define handlebars object where data gets put into view
         const hbsObject = {
+// is this supposed to be burgers or burger? I think this just has to match what the handlebars pages are looking for, so burgers is fine
             burgers: data,
         };
         console.log(hbsObject);
@@ -17,10 +18,9 @@ router.get('/', (req, res) => {
     });
 });
 
-    // app.post
+    // app.post create new burger
 router.post('/api/burger', (req, res) => {
-    // do I need to add devoured to schema with default = false?
-    burger.create(['burger_name', 'devoured'], [req.body.burger, req.body.devoured], (result) => {
+    burger.create(['burger_name', 'devoured'], [req.body.burger, 'false'], (result) => {
         res.json({ id: result.insertId });
     });
 });
@@ -44,8 +44,8 @@ router.put('/api/burger/:id', (req, res) => {
         //     } else return status goot
         // res.status(200).end();
         // })
-
-})
+    )
+});
 
 
 module.exports = router;
