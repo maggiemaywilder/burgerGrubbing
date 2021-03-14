@@ -1,26 +1,40 @@
 <header class="center"> 
     <img src="./public/assets/img/burgerClock.png" alt="Clock with phrase \"It\'s Burger O\'clock\"."/>
     {{!-- burger picture, centered on top --}}
-    <h1>Go on and get you some... burger!</h1>
+    <h1>It's Burger Time!</h1>
 </header>
-<main class="container-lg">
-    <div class="burgerLists row">
-        <div class="listDiv col align-self-center justify-content-evenly" id="burgers">
 
+<main>
+    <div class="burgerLists row justify-content-evenly"> 
+        <div class="listDiv col align-self-center" id="burgers">
+            <ul>
+                {{#each burger}}
+                {{#unless devoured}}
+                {{> burgers/burger-block devoured=false}}
+                {{/unless}}
+                {{/each}}
+            </ul>
         </div>
-        <div class="listDiv col align-self-center justify-content-evenly" id="devoured">
-
+        <div class="listDiv col align-self-center" id="devoured">
+                {{#each burger}}
+                {{#if devoured}}
+                {{> burgers/burger-block devoured=true}}
+                {{/if}}
+                {{/each}}
         </div>
-{{!-- #each for burgers left, buttons for each burger and a #each for devoured on right --}}
-
-{{!-- possible button format: <button class="devourBtn" data-id="(id value from db)" data-devoured="(devoured boolean from db)">then #if devoured show button else hide </button> --}}
-
     </div>
-</main>    
-<div class="center">
+</main>   
 
-    {{!-- input box and submit button to add a burger --}}
-    {{!-- submit button has id='makeBurger' --}}
+<div class="center">
+    <h1>What kind of burger would you like to make?</h1>
+    <form id="newBurger">
+        <div class="form-group">
+            <label for="bg">Burger name:</label>
+            <input type="text" id="bg" name="name">
+        </div>
+        <button type="submit" id="makeBurger">Make your burger</button>
+    </form>
+
 </div>
 
 

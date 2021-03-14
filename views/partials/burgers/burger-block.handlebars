@@ -1,0 +1,14 @@
+<li>
+    <div class="burgerBox">
+        {{burger_name}}
+
+        <button class="burgerButton" data-id="{{this.id}}" data-status="{{devour}}">
+            {{#if devour}}DEVOUR IT!{{else}}DELETE{{/if}}
+        </button>
+    </div>
+</li>
+
+
+{{!-- possible button format: <button class="devourBtn" data-id="(id value from db)" data-devoured="(devoured boolean from db)">then #if devoured show button else hide </button> --}}
+
+{{!-- can I same button for change to devoured and delete? --}}

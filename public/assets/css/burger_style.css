@@ -1,5 +1,5 @@
 body {
-    background-color: cornflowerblue;
+    background-color: rgba(237, 238, 174, 0.5);
 };
 
 .center {
@@ -7,12 +7,32 @@ body {
     
 };
 
+/* .burgerLists {
+} */
+
 .listDiv {
     display: inline-block;
-    width: 50%;
+    width: 45%;
     height: auto;
     padding: 10px;
+    margin: auto;
 
+};
+
+.burgerBox {
+  border-top: 10px rounded rgba(25, 112, 44, 0.25);
+  border-left: 10px rounded rgba(25, 112, 44, 0.25);
+  border-right: 25px rounded  rgba(25, 112, 44, 0.75);
+  border-bottom: 25px rounded  rgba(25, 112, 44, 0.75);
+  background-color: rgba(237, 238, 174, 0.25);
+  padding: 25px;
+};
+
+.burgerButton {
+  background-color:  rgba(25, 112, 44);
+  border-radius: 15px;
+  margin: auto;
+  float: right;
 };
 
 /* css from catApp */
