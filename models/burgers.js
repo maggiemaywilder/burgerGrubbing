@@ -10,15 +10,15 @@ const burger = {
         // what is cb()? this seems circular, the orm function also ends with cb(res).
     },
 
-    insertOne(burgerEntry, cb) {
+    create(burgerEntry, cb) {
         orm.insertOne('burgers', 'burger_name', `${burgerEntry}`, (res) => cb(res));
     },
 
-    updateOne(objColVals, condition, cb) {
+    updateOne(value, condition, cb) {
         // I think objColVals and condition comes from db
         // objColVals example {col1: value1, col2: value2}
         // need to find objToSql function in catApp
-        orm.updateOne('burgers', objColVals, condition, (res) => cb(res))
+        orm.updateOne('burgers', 'burger_name', value, condition, (res) => cb(res))
     },
     
 };

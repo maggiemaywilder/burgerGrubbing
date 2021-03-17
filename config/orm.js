@@ -1,29 +1,7 @@
 // Import MySQL connection.
 const connection = require('./connection');
+const mysql = require('mysql');
 
-// Helper function to convert object key/value pairs to SQL syntax
-const objToSql = (ob) => {
-    const arr = [];
-  
-    // Loop through the keys and push the key/value as a string int arr
-    for (const key in ob) {
-      let value = ob[key];
-      // Check to skip hidden properties
-      if (Object.hasOwnProperty.call(ob, key)) {
-        // If string with spaces, add quotations (Lana Del Grey => 'Lana Del Grey')
-        if (typeof value === 'string' && value.indexOf(' ') >= 0) {
-          value = `'${value}'`;
-        }
-        // e.g. {name: 'Lana Del Grey'} => ["name='Lana Del Grey'"]
-        // e.g. {sleepy: true} => ["sleepy=true"]
-        arr.push(`${key}=${value}`);
-      }
-    }
-  
-    // Translate array of strings to a single comma-separated string
-    return arr.toString();
-  };
-  
 const ORM = {
     selectAll(table, cb) {
         const queryString = `SELECT * FROM ${table}`;
@@ -33,32 +11,36 @@ const ORM = {
         });
     },
 
+    // making a new burger
     // define all values in params, no hard coding
-    insertOne(table, cols, val, cb) {
+    insertOne(table, column, value, cb) {
         let queryString = `INSERT INTO ${table}`;
-        queryString += ` (${cols}) `
-        `VALUES (${val})`;
-        console.log(queryString);
+        queryString += ` (`;
+        queryString += column;
+        queryString += `) VALUES ('`;
+        queryString += value;
+        queryString += `')`;
+        console.log(queryString, 'orm19');
 
         connection.query(queryString, (err, res) => {
             if (err) throw err;
-            console.log(res)
+            console.log(res, 'orm23')
             cb(res);
         }); 
     },
 
     // I don't understand the objColVals and the second queryString += value()
-    updateOne(table, objColVals, condition, cb) {
+    updateOne(table, column, value, condition, cb) {
         let queryString = `UPDATE ${table}`
         queryString += ` SET `;
-        queryString += objToSql(objColVals);
+        queryString += column;
+        queryString += `=`;
+        queryString += value;
         queryString += ` WHERE `;
         queryString += condition;
-
         console.log(queryString);
         connection.query(queryString, (err, res) => {
             if (err) throw err;
-            console.log(res);
             cb(res);
         });
     },

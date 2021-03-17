@@ -1,9 +1,9 @@
 <li>
     <div class="burgerBox">
-        {{burger_name}}
+        {{ burger_name }}
 
-        <button class="burgerButton" data-id="{{this.id}}" data-status="{{devour}}">
-            {{#if devour}}DEVOUR IT!{{else}}DELETE{{/if}}
+        <button class="devourBtn" data-id="{{this.id}}" data-status="{{devour}}">
+            {{#if data-devoured}}REPEAT!{{else}}DEVOUR IT!{{/if}}
         </button>
     </div>
 </li>

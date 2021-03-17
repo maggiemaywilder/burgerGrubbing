@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     devoured: true,
                 }
 
-                fetch(`/api/cats/${id}`, {
+                fetch(`/api/burger/${id}`, {
                     method: 'PUT',
                     headers: {
                         Accept: 'application/json',
@@ -42,30 +42,29 @@ document.addEventListener('DOMContentLoaded', (event) => {
     };
 
     // button to add burger to list
-    const makeBurgerBtn = document.getElementById('makeBurger');
+    const makeBurgerBtn = document.getElementById('newBurger');
 
     if(makeBurgerBtn) {
         makeBurgerBtn.addEventListener('submit', (e) => {
             e.preventDefault();
+            console.log('submit button got clicked');
 
             const newBurger = {
-                burger_name: document.getElementById('bg').value.trim(),
-                // don't need devoured because default = false
+                burgerName: document.getElementById('bg').value.trim(),
             };
-        
+            console.log(newBurger, 'listeners line55');
         // need POST request to create new burger
-            fetch('api/burgers', {
+            fetch('/api/burger', {
                 method: 'POST',
-                header: {
+                headers: {
                     Accept: 'application/json',
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(newBurger),
             }).then(() => {
-                // empty form
                 document.getElementById('bg').value = '';
                 console.log('Order up!');
-                location.reload();
+                // location.reload();
             });
         });
     }

@@ -1,22 +1,22 @@
 <header class="center"> 
-    <img src="./public/assets/img/burgerClock.png" alt="Clock with phrase \"It\'s Burger O\'clock\"."/>
+    <img src="/assets/img/burgerClock.png" alt="Clock with burger on it."/>
     {{!-- burger picture, centered on top --}}
     <h1>It's Burger Time!</h1>
 </header>
 
 <main>
     <div class="burgerLists row justify-content-evenly"> 
-        <div class="listDiv col align-self-center" id="burgers">
+        <div class="listDiv col align-self-left" id="burgers">
             <ul>
-                {{#each burger}}
+                {{#each burgers}}
                 {{#unless devoured}}
                 {{> burgers/burger-block devoured=false}}
                 {{/unless}}
                 {{/each}}
             </ul>
         </div>
-        <div class="listDiv col align-self-center" id="devoured">
-                {{#each burger}}
+        <div class="listDiv col align-self-right" id="devoured">
+                {{#each burgers}}
                 {{#if devoured}}
                 {{> burgers/burger-block devoured=true}}
                 {{/if}}
@@ -29,10 +29,10 @@
     <h1>What kind of burger would you like to make?</h1>
     <form id="newBurger">
         <div class="form-group">
-            <label for="bg">Burger name:</label>
-            <input type="text" id="bg" name="name">
+            <input type="text" id="bg" name="name" placeholder="Burger Name">
+            <button type="submit button" for="bg" id="makeBurger">Make your burger</button>
         </div>
-        <button type="submit" id="makeBurger">Make your burger</button>
+        
     </form>
 
 </div>
