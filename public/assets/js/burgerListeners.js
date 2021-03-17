@@ -64,29 +64,29 @@ document.addEventListener('DOMContentLoaded', (event) => {
             }).then(() => {
                 document.getElementById('bg').value = '';
                 console.log('Order up!');
-                // location.reload();
+                location.reload();
             });
         });
     }
 
     const deleteBurgerBtns = document.querySelectorAll('.deleteBtn');
 
-    if (deleteBtns) {
-        deleteBurgerBtns.addEventListener('click', (e) => {
-            const id = e.target.getAttribute('data-id');
-            fetch(`/api/burger/${id}`, {
-                method: 'DELETE',
-            }).then((response) => {
-                if (response.ok) {
-                    console.log(`Burger ${id} has been deleted.`)
-                    location.reload('/');
-                } else {
-                    console.log(`Burger ${id} could not be deleted.`)
-                }
+    if (deleteBurgerBtns) {
+        deleteBurgerBtns.forEach((button) => {
+            button.addEventListener('click', (e) => {
+                const id = e.target.getAttribute('data-id');
+                fetch(`/api/burger/${id}`, {
+                    method: 'DELETE',
+                }).then((response) => {
+                    if (response.ok) {
+                        console.log(`Burger ${id} has been deleted.`)
+                        location.reload('/');
+                    } else {
+                        console.log(`Burger ${id} could not be deleted.`)
+                    }
+                })
             })
-        })
+        });
     };
-    
 });
-
 

@@ -45,11 +45,13 @@ const ORM = {
         });
     },
 
-    deleteOne(table, condition, cb) {
+    deleteOne(table, column, value, cb) {
         let queryString = `DELETE FROM `;
         queryString += table;
         queryString += ` WHERE `;
-        queryString += condition;
+        queryString += column;
+        queryString += `=`;
+        queryString += value;
         console.log(queryString);
         connection.query(queryString, (err, res) => {
             if (err) throw err;

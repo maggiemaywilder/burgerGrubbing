@@ -15,11 +15,11 @@ const burger = {
     },
 
     updateOne(value, condition, cb) {
-        orm.updateOne('burgers', 'burger_name', value, condition, (res) => cb(res));
+        orm.updateOne('burgers', 'devoured', value, condition, (res) => cb(res));
     },
 
-    deleteOne(condition, cb) {
-        orm.deleteOne('burgers', condition, (res) => cb(res));
+    deleteOne(value, cb) {
+        orm.deleteOne('burgers', 'id', value, (res) => cb(res));
     }
     
 };

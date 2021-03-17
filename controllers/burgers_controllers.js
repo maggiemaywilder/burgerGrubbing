@@ -30,7 +30,7 @@ router.post('/api/burger', (req, res) => {
 router.put('/api/burger/:id', (req, res) => {
     // check that id is the one clicked
     const condition = `id = ${req.params.id}`;
-    burger.updateOne('devoured', condition, (result) => {
+    burger.updateOne('true', condition, (result) => {
         if (result.changedRows === 0) {
             return res.status(404).end();
     // (because id must not exist)
@@ -41,8 +41,7 @@ router.put('/api/burger/:id', (req, res) => {
 });
 
 router.delete('/api/burger/:id', (req, res) => {
-    const condition = `id = ${req.params.id}`;
-    burger.deleteOne(condition, (result) => {
+    burger.deleteOne(column, req.params.id , (result) => {
         if (result.affectedRows === 0) {
             return res.status(404).end();
         } else {

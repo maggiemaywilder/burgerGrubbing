@@ -1,12 +1,14 @@
-<header class="center"> 
-    <img src="/assets/img/burgerClock.png" alt="Clock with burger on it."/>
-    {{!-- burger picture, centered on top --}}
-    <h1>It's Burger Time!</h1>
+<header class="container-fluid"> 
+    <div class="col-6 mx-auto">
+            <img src="/assets/img/burgerClock.png" alt="Clock with burger on it."/>
+            <h1>It's Burger Time!</h1>
+
+    </div>
 </header>
 
 <main>
-    <div class="burgerLists row justify-content-evenly"> 
-        <div class="listDiv col align-self-left" id="burgers">
+    <div class="burgerLists row justify-content-around"> 
+        <div class="listDiv col-5 align-self-center" id="burgers">
             <ul>
                 {{#each burgers}}
                 {{#unless devoured}}
@@ -15,7 +17,7 @@
                 {{/each}}
             </ul>
         </div>
-        <div class="listDiv col align-self-right" id="devoured">
+        <div class="listDiv col-5 align-self-center" id="devoured">
                 {{#each burgers}}
                 {{#if devoured}}
                 {{> burgers/burger-block devoured=true}}
@@ -25,16 +27,16 @@
     </div>
 </main>   
 
-<div class="center">
-    <h1>What kind of burger would you like to make?</h1>
-    <form id="newBurger">
-        <div class="form-group">
-            <input type="text" id="bg" name="name" placeholder="Burger Name">
-            <button type="submit button" for="bg" id="makeBurger">Make your burger</button>
-        </div>
-        
-    </form>
-
+<div class="container-fluid center">
+    <div class="col-6 mx-auto">
+        <h2>What kind of burger would you like to make?</h2>
+        <form id="newBurger">
+            <div class="form-group">
+                <input type="text" id="bg" name="name" placeholder="Burger Name">
+                <button type="submit" class="btn btn-fancy btn-lg" for="bg" id="makeBurger">Make your burger</button>
+            </div>
+        </form>
+    </div>
 </div>
 
 

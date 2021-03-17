@@ -3,7 +3,8 @@ body {
 };
 
 .center {
-    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
     
 };
 
@@ -11,12 +12,12 @@ body {
 } */
 
 .listDiv {
-    display: inline-block;
     width: 45%;
     height: auto;
     padding: 10px;
     margin: auto;
-
+    border-style: solid;
+    
 };
 
 .burgerBox {
