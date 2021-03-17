@@ -45,6 +45,18 @@ const ORM = {
         });
     },
 
+    deleteOne(table, condition, cb) {
+        let queryString = `DELETE FROM `;
+        queryString += table;
+        queryString += ` WHERE `;
+        queryString += condition;
+        console.log(queryString);
+        connection.query(queryString, (err, res) => {
+            if (err) throw err;
+            cb(res);
+        })
+    },
+    
 };
 
 module.exports = ORM;
