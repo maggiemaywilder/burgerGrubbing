@@ -15,11 +15,12 @@ const burger = {
     },
 
     updateOne(value, condition, cb) {
-        // I think objColVals and condition comes from db
-        // objColVals example {col1: value1, col2: value2}
-        // need to find objToSql function in catApp
-        orm.updateOne('burgers', 'burger_name', value, condition, (res) => cb(res))
+        orm.updateOne('burgers', 'burger_name', value, condition, (res) => cb(res));
     },
+
+    deleteOne(condition, cb) {
+        orm.deleteOne('burgers', condition, (res) => cb(res));
+    }
     
 };
 

@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                         console.log(`Burger ${id} has been devoured.`);
                         location.reload('/');
                     } else {
-                        alert('Something went wrong!')
+                        console.log(`Burger ${id} could not be devoured.`);
                     }
                 });
             });
@@ -75,10 +75,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
         deleteBurgerBtns.addEventListener('click', (e) => {
             const id = e.target.getAttribute('data-id');
             fetch(`/api/burger/${id}`, {
-                
+                method: 'DELETE',
+            }).then((response) => {
+                if (response.ok) {
+                    console.log(`Burger ${id} has been deleted.`)
+                    location.reload('/');
+                } else {
+                    console.log(`Burger ${id} could not be deleted.`)
+                }
             })
         })
-    }
+    };
+    
 });
 
 
