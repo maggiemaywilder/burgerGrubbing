@@ -3,8 +3,10 @@
         {{ burger_name }}
 
         <button class="devourBtn" data-id="{{this.id}}" data-status="{{devour}}">
-            {{#if data-devoured}}REPEAT!{{else}}DEVOUR IT!{{/if}}
+            DEVOUR IT!
         </button>
+
+        <button class="deleteBtn" data-id="{{this.id}}">DELETE IT!</button>
     </div>
 </li>
 

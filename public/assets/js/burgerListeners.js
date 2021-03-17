@@ -69,6 +69,16 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
     }
 
+    const deleteBurgerBtns = document.querySelectorAll('.deleteBtn');
+
+    if (deleteBtns) {
+        deleteBurgerBtns.addEventListener('click', (e) => {
+            const id = e.target.getAttribute('data-id');
+            fetch(`/api/burger/${id}`, {
+                
+            })
+        })
+    }
 });
 
 
