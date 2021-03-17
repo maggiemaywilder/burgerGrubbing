@@ -20,7 +20,7 @@
         <div class="listDiv col-5 align-self-center" id="devoured">
                 {{#each burgers}}
                 {{#if devoured}}
-                {{> burgers/burger-block devoured=true}}
+                {{> burgers/devoured-block devoured=true}}
                 {{/if}}
                 {{/each}}
         </div>
@@ -28,12 +28,12 @@
 </main>   
 
 <div class="container-fluid center">
-    <div class="col-6 mx-auto">
+    <div class="col-9 mx-auto">
         <h2>What kind of burger would you like to make?</h2>
         <form id="newBurger">
             <div class="form-group">
                 <input type="text" id="bg" name="name" placeholder="Burger Name">
-                <button type="submit" class="btn btn-fancy btn-lg" for="bg" id="makeBurger">Make your burger</button>
+                <button type="submit btn btn-success" class="btn btn-fancy btn-lg" for="bg" id="makeBurger">Make your burger</button>
             </div>
         </form>
     </div>

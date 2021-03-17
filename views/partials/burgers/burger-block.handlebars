@@ -1,14 +1,12 @@
 <li>
-    <div class="burgerBox">
-        {{ burger_name }}
-
-        <button class="devourBtn" data-id="{{this.id}}" data-status="{{devour}}">
-            DEVOUR IT!
-        </button>
+    <div class="card text-center">
+        <div class="card-body">
+            <h5 class="card-title">{{ burger_name }}</h5>
+            <button class="devourBtn btn btn-success" data-id="{{this.id}}" data-status="{{devour}}">
+                DEVOUR IT!
+            </button>
+        </div>
     </div>
 </li>
 
 
-{{!-- possible button format: <button class="devourBtn" data-id="(id value from db)" data-devoured="(devoured boolean from db)">then #if devoured show button else hide </button> --}}
-
-{{!-- can I same button for change to devoured and delete? --}}
