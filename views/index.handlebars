@@ -9,20 +9,22 @@
 <main>
     <div class="burgerLists row justify-content-around"> 
         <div class="listDiv col-5 align-self-center" id="burgers">
-            <ul>
+            <dl>
                 {{#each burgers}}
                 {{#unless devoured}}
                 {{> burgers/burger-block devoured=false}}
                 {{/unless}}
                 {{/each}}
-            </ul>
+            </dl>
         </div>
         <div class="listDiv col-5 align-self-center" id="devoured">
+            <dl>
                 {{#each burgers}}
                 {{#if devoured}}
                 {{> burgers/devoured-block devoured=true}}
                 {{/if}}
                 {{/each}}
+            </dl>    
         </div>
     </div>
 </main>   
