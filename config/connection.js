@@ -1,5 +1,5 @@
 const mysql = require('mysql');
-const password = require('../private/connect');
+// const password = require('../private/connect');
 
 var connection;
 
@@ -10,8 +10,8 @@ if (process.env.JAWSDB_URL) {
         host: 'localhost',
         port: 3306,
         user: 'root',
-        // password: 'rootroot',
-        password: `${password}`,
+        password: 'rootroot',
+        // password: `${password}`,
         database: 'burgers_db',
     });
 }
